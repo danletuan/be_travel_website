@@ -1,0 +1,6 @@
+.image-container img {
+    border-radius: 45px 0 0 45px;
+    width: 50vw;
+    height: 100vh;
+    object-fit: cover;
+  }
