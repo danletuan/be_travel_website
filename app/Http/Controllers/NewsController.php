@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\ArticleService;
+use App\Models\News;
 
 class NewsController extends Controller
 {
@@ -22,13 +23,15 @@ class NewsController extends Controller
         return view('home.news', compact('news', 'category'));
     }
 
-    public function show($slug)
+    public function show($id)
     {
-        // Lấy tin tức theo slug
-        $news = News::where('slug', $slug)->firstOrFail();
+        // Lấy tin tức theo ID
+        $news = News::findOrFail($id);
 
-        // Truyền dữ liệu vào view
-        return view('home.news-detail', ['news' => $news]);
+        // Truyền dữ liệu tới view
+        return view('home.news-detail', [
+            'news' => $news
+        ]);
     }
 }
 

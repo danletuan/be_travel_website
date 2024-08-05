@@ -6,7 +6,7 @@
 <div class="title-new">
     <div class="title-content">
         <h1 class="text-start text-nowrap overflow-hidden text-truncate">{{ $news->title }}</h1>
-        <div class="title-new-date">{{ $news->created_at->format('F j, Y') }}</div>
+        <div class="title-new-date">{{ $news->created_at->format('F d, Y') }}</div>
     </div>
 </div>
 
@@ -14,10 +14,9 @@
     <div class="container">
         <div class="row">
             <div class="col-8">
-                <p style="text-indent: 30px;">{{ $news->content }}</p>
-                <!-- Thêm phần tử hình ảnh nếu cần thiết -->
+                {!! $news->content !!} <!-- Sử dụng {!! !!} để render HTML nếu content có chứa thẻ HTML -->
                 @if($news->image)
-                    <img src="{{ asset('storage/' . $news->image) }}" alt="News Image" class="img-fluid mb-3 mt-5">
+                    <img src="{{ $news->image }}" alt="{{ $news->title }}" class="img-fluid mb-3 mt-5">
                 @endif
             </div>
             <div class="col-4">
@@ -26,7 +25,34 @@
                         <h4>Other Destinations</h4>
                         <a href="#" class="see-all">See all</a>
                     </div>
-                    <!-- Các bài viết khác có thể được liệt kê ở đây -->
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Wakatobi Beach Is A Paradise For Coral Reefs In Indonesia</h5>
+                            <div class="card-text">Yogyakarta, Indonesia</div>
+                            <a href="#" class="btn btn-success mt-5">View More</a>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Wakatobi Beach Is A Paradise For Coral Reefs In Indonesia</h5>
+                            <div class="card-text">Yogyakarta, Indonesia</div>
+                            <a href="#" class="btn btn-success mt-5">View More</a>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Wakatobi Beach Is A Paradise For Coral Reefs In Indonesia</h5>
+                            <div class="card-text">Yogyakarta, Indonesia</div>
+                            <a href="#" class="btn btn-success mt-5">View More</a>
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Wakatobi Beach Is A Paradise For Coral Reefs In Indonesia</h5>
+                            <div class="card-text">Yogyakarta, Indonesia</div>
+                            <a href="#" class="btn btn-success mt-5">View More</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

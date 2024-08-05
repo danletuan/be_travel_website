@@ -24,19 +24,20 @@
     <div class="row">
         @foreach($news as $item)
         <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="{{ $item->image }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ $item->title }}</h5>
-                    <p class="card-text"><small class="text-muted">{{ $item->created_at->format('F d, Y') }}</small></p>
+            <a href="{{ route('news.show', ['id' => $item->id]) }}" class="card-link">
+                <div class="card">
+                    <img src="{{ $item->image }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $item->title }}</h5>
+                        <p class="card-text"><small class="text-muted">{{ $item->created_at->format('F d, Y') }}</small></p>
+                    </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
     </div>
 </div>
 @endsection
-
 
 @section('styles')
     <link rel="stylesheet" href="css/home/news.css">
