@@ -14,7 +14,7 @@
     <div class="container">
         <div class="row">
             <div class="col-8">
-                {!! $news->content !!} <!-- Sử dụng {!! !!} để render HTML nếu content có chứa thẻ HTML -->
+                {!! $news->content !!}
                 @if($news->image)
                     <img src="{{ $news->image }}" alt="{{ $news->title }}" class="img-fluid mb-3 mt-5">
                 @endif
