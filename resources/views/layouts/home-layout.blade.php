@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/home/layout.css">
+    <link rel="stylesheet" type="text/css" href="/be_travel_website/public/css/home/layout.css">
     <title>@yield('title')</title>
     @yield('styles') 
 </head>

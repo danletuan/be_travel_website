@@ -23,10 +23,10 @@ class NewsController extends Controller
         return view('home.news', compact('news', 'category'));
     }
 
-    public function show($id)
+    public function show($slug)
     {
-        // Lấy tin tức theo ID
-        $news = News::findOrFail($id);
+        // Sử dụng service để lấy tin tức theo slug
+        $news = $this->articleService->getNewsBySlug($slug);
 
         // Truyền dữ liệu tới view
         return view('home.news-detail', [

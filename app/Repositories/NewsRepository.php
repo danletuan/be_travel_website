@@ -12,4 +12,14 @@ class NewsRepository
             return $query->where('category', $category);
         })->get();
     }
+
+    public function getNewsById($id)
+    {
+        return News::findOrFail($id);
+    }
+
+    public function getNewsBySlug($slug)
+    {
+        return News::where('slug', $slug)->firstOrFail();
+    }
 }

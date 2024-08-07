@@ -24,7 +24,7 @@
     <div class="row">
         @foreach($news as $item)
         <div class="col-md-4 mb-4">
-            <a href="{{ route('news.show', ['id' => $item->id]) }}" class="card-link">
+            <a href="{{ route('news.show', ['slug' => $item->slug]) }}" class="card-link">
                 <div class="card">
                     <img src="{{ $item->image }}" class="card-img-top" alt="...">
                     <div class="card-body">

@@ -17,5 +17,15 @@ class ArticleService
     {
         return $this->newsRepository->getAll($category);
     }
+
+    public function getNewsById($id)
+    {
+        return $this->newsRepository->getNewsById($id);
+    }
+
+    public function getNewsBySlug($slug)
+    {
+        return $this->newsRepository->getNewsBySlug($slug);
+    }
 }
 

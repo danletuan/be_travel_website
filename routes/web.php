@@ -34,4 +34,5 @@ Route::post('/password/email', [ForgotPasswordController::class, 'sendResetLinkE
 
 // News
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
-Route::get('/news-detail/{id}', [NewsController::class, 'show'])->name('news.show');
+Route::get('/{slug}', [NewsController::class, 'show'])->name('news.show');
+

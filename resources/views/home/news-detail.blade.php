@@ -16,7 +16,7 @@
             <div class="col-8">
                 {!! $news->content !!}
                 @if($news->image)
-                    <img src="{{ $news->image }}" alt="{{ $news->title }}" class="img-fluid mb-3 mt-5">
+                    <img src="{{ asset('be_travel_website/public/assets/home/news-detail/image1.png') }}" alt="{{ $news->title }}" class="img-fluid mb-3 mt-5">
                 @endif
             </div>
             <div class="col-4">
@@ -61,5 +61,5 @@
 @endsection
 
 @section('styles')
-    <link rel="stylesheet" href="css/home/news-detail.css">
+    <link rel="stylesheet" href="{{ asset('be_travel_website/public/css/home/news-detail.css') }}">
 @endsection
