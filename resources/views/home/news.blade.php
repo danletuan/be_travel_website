@@ -14,11 +14,9 @@
     </header>
 
     <nav class="nav justify-content-center mb-4">
-        <a class="nav-link {{ request('category') == 'Adventure Travel' ? 'active' : '' }}" href="{{ route('news.index', ['category' => 'Adventure Travel']) }}">Adventure Travel</a>
-        <a class="nav-link {{ request('category') == 'Beach' ? 'active' : '' }}" href="{{ route('news.index', ['category' => 'Beach']) }}">Beach</a>
-        <a class="nav-link {{ request('category') == 'Explore World' ? 'active' : '' }}" href="{{ route('news.index', ['category' => 'Explore World']) }}">Explore World</a>
-        <a class="nav-link {{ request('category') == 'Family Holidays' ? 'active' : '' }}" href="{{ route('news.index', ['category' => 'Family Holidays']) }}">Family Holidays</a>
-        <a class="nav-link {{ request('category') == 'Art and Culture' ? 'active' : '' }}" href="{{ route('news.index', ['category' => 'Art and Culture']) }}">Art and Culture</a>
+        @foreach($categories as $cat)
+            <a class="nav-link {{ request('category') == $cat->name ? 'active' : '' }}" href="{{ route('news.index', ['category' => $cat->name]) }}">{{ $cat->name }}</a>
+        @endforeach
     </nav>
 
     <div class="row">

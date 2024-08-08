@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Repositories\NewsRepository;
+use App\Models\News;
+use App\Models\Category;
 
 class ArticleService
 {
@@ -15,7 +17,13 @@ class ArticleService
 
     public function getAllNews($category = null)
     {
-        return $this->newsRepository->getAll($category);
+        $category = Category::where('name', $category)->first();
+
+        if ($category) {
+            return News::where('category_id', $category->id)->get();
+        }
+        
+        return News::all();
     }
 
     public function getNewsById($id)
