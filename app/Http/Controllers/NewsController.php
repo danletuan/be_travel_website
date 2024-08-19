@@ -44,7 +44,15 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         try {
-            $post = $this->service->create($request->all());
+            $validatedData = $request->validate([
+                'title' => 'required|string|max:255',
+                'slug' => 'required|string|max:255|unique:posts,slug',
+                'content' => 'required|string',
+                'category_id' => 'required|exists:categories,id',
+                'status' => 'required|in:0,1,2',
+            ]);
+
+            $post = $this->service->create($validatedData);
             return response()->json($post, 201);
         } catch (ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 422);
@@ -56,7 +64,15 @@ class NewsController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $post = $this->service->update($request->all(), $id);
+            $validatedData = $request->validate([
+                'title' => 'sometimes|required|string|max:255',
+                'slug' => 'required|string|max:255|unique:posts,slug',
+                'content' => 'sometimes|required|string',
+                'category_id' => 'sometimes|required|exists:categories,id',
+                'status' => 'sometimes|required|in:0,1,2',
+            ]);
+
+            $post = $this->service->update($validatedData, $id);
             return response()->json($post);
         } catch (ModelNotFoundException $e) {
             return response()->json(['message' => 'Không tìm thấy dữ liệu'], 404);

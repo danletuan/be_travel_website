@@ -29,6 +29,9 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/profile', [AuthController::class, 'profile']);
+    Route::post('/posts', [NewsController::class, 'store']);
+    Route::put('/posts/{id}', [NewsController::class, 'update']);
+    Route::put('/posts/draft/{id}', [NewsController::class, 'updateDraft']);
 });
 
 
@@ -36,18 +39,8 @@ Route::post('/forgot-password', [ForgotPasswordController::class, 'forgotPasswor
 Route::post('/token', [ForgotPasswordController::class, 'checkToken']);
 Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword']);
 
-// Lấy toàn bộ bài viết
 Route::get('/posts', [NewsController::class, 'index']);
-// Lấy chi tiết bài viết
 Route::get('/posts/{id}', [NewsController::class, 'show']);
-// Lấy bài viết theo status
 Route::get('/posts/status/{status}', [NewsController::class, 'getPostsByStatus']);
-// Thêm bài viết
-Route::post('/posts', [NewsController::class, 'store']);
-// Sửa bài viết thông thường
-Route::put('/posts/{id}', [NewsController::class, 'update']);
-// Sửa bài viết và lưu nháp
-Route::put('/posts/draft/{id}', [NewsController::class, 'updateDraft']);
-
 
 
